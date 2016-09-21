@@ -1,0 +1,27 @@
+{
+  "name": "vue-book",
+  "authors": [
+    "huweijian"
+  ],
+  "description": "这里放网站相关依赖，非打包插件",
+  "main": "",
+  "keywords": [
+    "vue",
+    "node",
+    "express"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/aiyi-touxiang/vue-book#readme",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "vue": "^1.0.26",
+    "vue-resource": "^0.9.3",
+    "vue-router": "^0.7.13"
+  }
+}
