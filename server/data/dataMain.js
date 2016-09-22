@@ -12,7 +12,10 @@ function dataMain(query, callback){
       callback(null, method[_mt]());
     }else{
       console.log('无对应方法');
-      callback('无对应方法')
+      callback({
+        error: '500',
+        msg: '无对应方法'
+      }, null)
     }
   }else{
     console.log('没有参数');

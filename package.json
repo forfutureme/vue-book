@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "dev": "NODE_ENV=dev gulp dev",
-    "pro": "NODE_ENV=pro gulp pro"
+    "pro": "NODE_ENV=pro gulp pro",
+    "one": "NODE_ENV=dev gulp one"
   },
   "repository": {
     "type": "git",

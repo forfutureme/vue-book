@@ -33,13 +33,13 @@ if (webpackBaseConfDev.plugins){
     webpackBaseConfDev.plugins = devPlugins;
 }
 console.log('-------------------------dev--------------------------------');
-extend(webpackBaseConfDev.output, {
-    path: config.build.assetsDev,
-    filename: '[name].js',
-    chunkFilename:'[name].js',
-    publicPath: 'http://localhost:3000/',
-    assetsPublicPath: config.build.assetsPublicPath
-});
+// extend(webpackBaseConfDev.output, {
+//     path: config.build.assetsDev,
+//     filename: '[name].js',
+//     chunkFilename:'[name].js',
+//     publicPath: 'http://localhost:3000/',
+//     assetsPublicPath: config.build.assetsPublicPath
+// });
 
 module.exports = webpackBaseConfDev;
 

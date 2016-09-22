@@ -18,7 +18,7 @@ webpackConfig = process.env.NODE_ENV === 'dev' ? require('./build/webpack.dev.co
 
 //开发环境下
 gulp
-    .task('webpackDev', function(callback){
+    .task('webpack', function(callback){
         webpack(webpackConfig, function(error, stats) {
             if (error) throw new gutil.PluginError('webpack', error);
             gutil.log('[webpack]', stats.toString());
@@ -27,16 +27,7 @@ gulp
         });
     });
 
-//生产环境下
-gulp
-    .task('webpackPro', function (callback) {
-        webpack(webpackConfig, function(error, stats) {
-            if (error) throw new gutil.PluginError('webpack', error);
-            gutil.log('[webpack]', stats.toString());
 
-            callback();
-        });
-    });
 
 //检测变化初始化服务
 gulp
@@ -47,7 +38,7 @@ gulp
         });
 
         gulp
-            .watch('./src/**/**', ['webpackDev']);
+            .watch('./src/**/**', ['webpack']);
 
     });
 
@@ -55,7 +46,7 @@ gulp
 gulp
     .task('clean', function () {
         return gulp
-            .src('./dev/**/**')
+            .src('./dev')
             .pipe(clean());
     });
 
@@ -70,7 +61,7 @@ gulp
 
 //生产环境下任务
 gulp
-    .task('pro', ['cleanPro','webpackPro'], function () {
+    .task('pro', ['cleanPro','webpack'], function () {
         gutil.log('生产完成');
         browserSync.init({
             server: './dist'
@@ -79,9 +70,13 @@ gulp
 
 //默认运行开发环境下任务
 gulp
-    .task('dev', ['webpackDev', 'change'], function(){
+    .task('dev', ['webpack', 'change'], function(){
         gulp.watch('./dev/**/**').on("change", browserSync.reload);
     });
 
-
+//只运行一次dev打包
+gulp
+    .task('one', ['webpack'], function () {
+        gutil.log('一次执行开发完成');
+    });
 
