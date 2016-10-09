@@ -1,0 +1,16 @@
+@charset "UTF-8";
+/**
+* 定义一个获取z-index的方法，若存在则返回，若不存在则发出警告，并返回null
+* 当前map不涉及层级嵌套，故相对单纯，若map有复杂嵌套需重写该方法
+* 更多资料http://www.w3cplus.com/preprocessor/sassy-z-index-management-for-complex-layouts.html
+* http://www.w3cplus.com/preprocessor/better-solution-managing-z-index-sass.html
+*/
+@function get-zIndex($map, $key){
+  $z-index: map_get($map, $key);
+  @if $z-index {
+    @return $z-index;
+  }
+
+  @warn '当前层级"#{$key}"不存在;请检查当前map:"#{$map}"';
+  @return null
+}

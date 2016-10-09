@@ -30,6 +30,7 @@ module.exports = {
     },
 
     plugins: [
+        new ExtractPlugin('[name].css',{allChunks: true}),
         new webpack.optimize.CommonsChunkPlugin({
             //把用到的依赖放入名为main的文件
             name: 'main',
@@ -83,8 +84,24 @@ module.exports = {
                 loader: 'html'
             }
         ]
+    },
+    externals: [
+        {
+            'vue.min': 'Vue',
+            'jquery.min': '$'
+        }
+    ],
+    vue: {
+        autoprefixer: {
+            browsers: ['last 2 versions']
+        }
+    },
+    resolve: {
+        extensions: ['', '.webpack.js', '.web.js', '.js', '.vue'],
+        root: [
+            projectRoot
+        ]
     }
-
 };
 
 

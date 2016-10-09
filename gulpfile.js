@@ -34,11 +34,11 @@ gulp
     .task('change', function(){
         // 从这个项目的根目录启动服务器
         browserSync.init({
-            server: './dev'
+            server: 'dev'
         });
 
         gulp
-            .watch('./src/**/**', ['webpack']);
+            .watch('src/**/**', ['webpack']);
 
     });
 
@@ -46,7 +46,7 @@ gulp
 gulp
     .task('clean', function () {
         return gulp
-            .src('./dev')
+            .src('dev')
             .pipe(clean());
     });
 
@@ -64,14 +64,14 @@ gulp
     .task('pro', ['cleanPro','webpack'], function () {
         gutil.log('生产完成');
         browserSync.init({
-            server: './dist'
+            server: 'dist'
         });
     });
 
 //默认运行开发环境下任务
 gulp
     .task('dev', ['webpack', 'change'], function(){
-        gulp.watch('./dev/**/**').on("change", browserSync.reload);
+        gulp.watch('dev/**/**').on("change", browserSync.reload);
     });
 
 //只运行一次dev打包

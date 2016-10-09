@@ -1,0 +1,33 @@
+/*
+* 基础样式设置
+*/
+*{
+  box-sizing: border-box;
+}
+html,body{
+  width: 100%;
+  height: 100%;
+}
+body{
+  font-family: 'Helvetica Neue', Arial, 'Liberation Sans', FreeSans, sans-serif;
+  color: #333;
+  margin: 0 auto;
+  background:#f0eff5;
+}
+
+a{
+  text-decoration: none;
+  color:#333;
+  outline: none;
+}
+a:visited{
+  color: #333;
+}
+button{
+  border: none;
+  outline: none;
+}
+
+ul,li{
+  list-style: none;
+}

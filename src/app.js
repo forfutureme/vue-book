@@ -5,9 +5,13 @@
 
 //引入vue，vue-resource，vue-router依赖
 
-import Vue from '../bower_components/vue/dist/vue';
-import VueResource from '../bower_components/vue-resource/dist/vue-resource';
-import VueRouter from '../bower_components/vue-router/dist/vue-router';
+import Vue from '../bower_components/vue/dist/vue.min';
+import VueResource from '../bower_components/vue-resource/dist/vue-resource.min';
+import VueRouter from '../bower_components/vue-router/dist/vue-router.min';
+
+import $ from '../bower_components/jquery/dist/jquery.min';
+
+import './assets/scss/common.scss';
 
 //引入vue路由配置
 import routerMap from './router/routerMap';

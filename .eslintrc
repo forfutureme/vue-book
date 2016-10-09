@@ -1,3 +1,7 @@
-parser: 'babel-eslint'
-rules:
-  quotes: 1
+{
+  "parser": "babel-eslint",
+  "rules": {
+    "quotes": [2, "single", "avoid-escape"]
+  },
+  "plugins": ["vue"]
+}

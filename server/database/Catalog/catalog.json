@@ -1,5 +1,10 @@
 {
   "tech-tool": [
-    "regex"
+    {
+      "id": 1,
+      "type": "tool",
+      "cn": "正则表达式",
+      "en": "regex"
+    }
   ]
 }

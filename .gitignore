@@ -50,7 +50,7 @@ use
 dev
 dist
 server/test
-webpack.base.conf.js
-webpack.config.js
-webpack.dev.conf.js
-webpack.pro.conf.js
+/webpack.base.conf.js
+/webpack.config.js
+/webpack.dev.conf.js
+/webpack.pro.conf.js

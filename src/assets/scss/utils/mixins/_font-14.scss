@@ -1,0 +1,9 @@
+/**
+* 定义14号字体通用样式
+*/
+@mixin font-14{
+  line-height: 1.5;
+  text-indent: 2em;
+  font-size: 14px;
+  color: #999;
+}

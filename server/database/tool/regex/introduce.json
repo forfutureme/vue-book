@@ -1,0 +1,374 @@
+{
+  "introduce": "正则表达式（regular expression，简称regex）是一种工具，和其他工具一样，它是人类为解决一类专门问题而发明的。它主要应用查找、匹配、替换一些特定的目标字符。简单地说，正则表达式是一些用来匹配和处理文本的字符串。",
+  "metaCharacter": {
+    "anyCharacter": [
+      {
+        "type": "h1",
+        "character": "anyCharacter",
+        "mean": "匹配任意字符元字符"
+      },
+      {
+        "type": "text",
+        "character": ".",
+        "mean": "匹配任意字符"
+      }
+    ],
+    "blankCharacter": [
+      {
+        "type": "h1",
+        "character": "blankCharacter",
+        "mean": "匹配空白字符元字符"
+      },
+      {
+        "type": "text",
+        "character": "[-b-]",
+        "mean": "回退（并删除）一个字符串"
+      },
+      {
+        "type": "text",
+        "character": "-f-",
+        "mean": "换页符"
+      },
+      {
+        "type": "text",
+        "character": "-n-",
+        "mean": "换行符"
+      },
+      {
+        "type": "text",
+        "character": "-r-",
+        "mean": "回车符"
+      },
+      {
+        "type": "text",
+        "character": "-t-",
+        "mean": "制表符（tab）"
+      },
+      {
+        "type": "text",
+        "character": "-v-",
+        "mean": "垂直制表符"
+      }
+    ],
+    "givenCharacter": [
+      {
+        "type": "h1",
+        "character": "givenCharacter",
+        "mean": "匹配特定字符元字符"
+      },
+      {
+        "type": "h2",
+        "character": "number",
+        "mean": "匹配数字"
+      },
+      {
+        "type": "text",
+        "character": "-d-",
+        "mean": "任何一个数字字符（等价于[0-9]）"
+      },
+      {
+        "type": "text",
+        "character": "-D-",
+        "mean": "任何一个非数字字符 (等价于[^0-9])"
+      },
+      {
+        "type": "h2",
+        "character": "letter",
+        "mean": "匹配字母或字符"
+      },
+      {
+        "type": "text",
+        "character": "-w-",
+        "mean": "任何一个字母数字字符（大小写均可）或下划线字符（等价于[a-zA-Z0-9_]）"
+      },
+      {
+        "type": "h2",
+        "character": "blank",
+        "mean": "匹配空白字符"
+      },
+      {
+        "type": "text",
+        "character": "-s-",
+        "mean": "任何一个空白字符（等价于[-f--n--r--t--v-]）"
+      },
+      {
+        "type": "text",
+        "character": "-S-",
+        "mean": "任何一个非空白字符（等价于[^-f-n--r--t--v-]）"
+      },
+      {
+        "type": "add",
+        "character": "[-b-]",
+        "mean": "用来匹配退格字符的[-b-]元字符是一个特例：它不在类元字符-s-的覆盖范围内，当然也就没有被排除在类元字符-S-的覆盖范围外。"
+      },
+      {
+        "type": "h2",
+        "character": "hex",
+        "mean": "匹配十六进制或八进制数组"
+      },
+      {
+        "type": "text",
+        "character": "-x-",
+        "mean": "使用十六进制值，十六进制（逢16进1）数值要用前缀-x-给出。比如说，-x-0A对应于ASCII字符10（换行符），其效果等价于-n-。"
+      },
+      {
+        "type": "text",
+        "character": "-0-",
+        "mean": "使用八进制值，八进制（逢8进1）数组要用前缀-0-给出，数值本身可以是俩位或是三位，比如说，-0-11对应于ASCII字符9（制表符），其效果等价于-t-。"
+      }
+    ],
+    "posixCharacter": [
+      {
+        "type": "h1",
+        "character": "posix",
+        "mean": "POSIX字符类"
+      },
+      {
+        "type": "add",
+        "character": "posix",
+        "mean": "因为JavaScript引擎不支持这种用法，所以这里只是简单的列举出一些用法，这里介绍一些匹配特定字符（制表符、换行符）的集合类和用来匹配一个字符集合的字符类（数字、字母数字字符）。"
+      },
+      {
+        "type": "text",
+        "character": "[:alnum:]",
+        "mean": "任何一个字母或数字（等价于[a-zA-Z0-9]）"
+      },
+      {
+        "type": "text",
+        "character": "[:alpha:]",
+        "mean": "任何一个字母（等价于[a-zA-Z]）"
+      },
+      {
+        "type": "text",
+        "character": "[:blank:]",
+        "mean": "空格或制表符 (等价于[-t-])"
+      },
+      {
+        "type": "text",
+        "character": "[:cntrl:]",
+        "mean": "ASCII控制字符（ASCII0到31，再加上ASCII127）"
+      },
+      {
+        "type": "text",
+        "character": "[:digit:]",
+        "mean": "任何一个数字（等价于[0-9]）"
+      },
+      {
+        "type": "text",
+        "character": "[:graph:]",
+        "mean": "和[:print:]一样，但不包括空"
+      },
+      {
+        "type": "text",
+        "character": "[:lower:]",
+        "mean": "任何一个小写字母（等价于[a-z]）"
+      },
+      {
+        "type": "text",
+        "character": "[:print:]",
+        "mean": "任何一个可打印字符"
+      },
+      {
+        "type": "text",
+        "character": "[:punct:]",
+        "mean": "既不属于[:album:]也不属于[:control:]的任何一个字符"
+      },
+      {
+        "type": "text",
+        "character": "[:space:]",
+        "mean": "任何一个空白字符，包括空格（等价于[^-f--n--r--t--v-]）"
+      },
+      {
+        "type": "text",
+        "character": "[:upper:]",
+        "mean": "任何一个大写字母（等价于[A-Z]）"
+      },
+      {
+        "type": "text",
+        "character": "[:digit:]",
+        "mean": "任何一个十六进制数字（等价于[a-fA-F0-9]）"
+      }
+    ],
+    "repeatCharacter": [
+      {
+        "type": "h1",
+        "character": "repeat",
+        "mean": "重复匹配元字符"
+      },
+      {
+        "type": "h2",
+        "character": "many",
+        "mean": "有多少个匹配"
+      },
+      {
+        "type": "text",
+        "character": "+",
+        "mean": "匹配一个或多个字符（>=1）"
+      },
+      {
+        "type": "text",
+        "character": "*",
+        "mean": "匹配零个或多个字符（>=0）"
+      },
+      {
+        "type": "text",
+        "character": "?",
+        "mean": "匹配零个或1个字符（0||1）"
+      },
+      {
+        "type": "h2",
+        "character": "times",
+        "mean": "匹配的重复次数"
+      },
+      {
+        "type": "text",
+        "character": "{n}",
+        "mean": "为重复匹配次数设定一个精确的值"
+      },
+      {
+        "type": "text",
+        "character": "{n, m}",
+        "mean": "为重复匹配次数设定一个区间"
+      },
+      {
+        "type": "text",
+        "character": "{n, }",
+        "mean": "匹配“至少重复多少次”"
+      },
+      {
+        "type": "h2",
+        "character": "over",
+        "mean": "防止过度匹配"
+      },
+      {
+        "type": "text",
+        "character": "*?",
+        "mean": "*的懒惰型形式"
+      },
+      {
+        "type": "text",
+        "character": "+?",
+        "mean": "+的懒惰型形式"
+      },
+      {
+        "type": "text",
+        "character": "{n,m}?",
+        "mean": "{n,m}的懒惰型形式"
+      },
+      {
+        "type": "add",
+        "character": "贪婪和懒惰",
+        "mean": "我们用过的大多数例子都是“贪婪型”元字符，而我们这么做的出发点是为了让那些示例模式尽可能地简明易懂，在实际工作中，请务必根据具体情况来选用“贪婪型”或“懒惰型”元字符。在需要防止过度匹配的场合下，请使用“懒惰型”元字符来构造你的正则表达式。"
+      }
+    ],
+    "toolCharacter": [
+      {
+        "type": "h1",
+        "character": "tool",
+        "mean": "工具类元字符"
+      },
+      {
+        "type": "text",
+        "character": "^",
+        "mean": "含义有二，1）若出现在'['之外且在正则最开始标示从字符串开头匹配；2）若在'['后面则表示对集合取反。"
+      },
+      {
+        "type": "text",
+        "character": "$",
+        "mean": "出现在正则表达式尾部，匹配字符串结尾以及行分隔符（换行符）后面的介绍位置"
+      },
+      {
+        "type": "text",
+        "character": "[]",
+        "mean": "定义字符集合"
+      },
+      {
+        "type": "text",
+        "character": "{}",
+        "mean": "给定重复匹配次数语法"
+      },
+      {
+        "type": "text",
+        "character": "-b-",
+        "mean": "匹配单词边界"
+      },
+      {
+        "type": "text",
+        "character": "()",
+        "mean": "创建子表达式，分组捕获"
+      },
+      {
+        "type": "text",
+        "character": "|",
+        "mean": "或"
+      },
+      {
+        "type": "text",
+        "character": "-E-",
+        "mean": "结束-L-或-U-转换"
+      },
+      {
+        "type": "text",
+        "character": "-I-",
+        "mean": "把下一个字符串转换为小写"
+      },
+      {
+        "type": "text",
+        "character": "-L-",
+        "mean": "把-L-到-E-之间的字符全部转转为小写"
+      },
+      {
+        "type": "text",
+        "character": "-u-",
+        "mean": "把下一个字符转换为大写"
+      },
+      {
+        "type": "text",
+        "character": "-U-",
+        "mean": "把-U-到-E-之间的字符全部转换为大写"
+      }
+    ],
+    "groupCharacter": [
+      {
+        "type": "h1",
+        "character": "group",
+        "mean": "组合元字符"
+      },
+      {
+        "type": "text",
+        "character": "()-1-",
+        "mean": "回溯引用"
+      },
+      {
+        "type": "text",
+        "character": "()$1",
+        "mean": "回溯替换"
+      },
+      {
+        "type": "text",
+        "character": "(?=)",
+        "mean": "正向前查找"
+      },
+      {
+        "type": "text",
+        "character": "(?!)",
+        "mean": "负向前查找"
+      },
+      {
+        "type": "text",
+        "character": "(?<=)",
+        "mean": "正向后查找"
+      },
+      {
+        "type": "text",
+        "character": "(?<!)",
+        "mean": "负向后查找"
+      },
+      {
+        "type": "add",
+        "character": "前后查找",
+        "mean": "一版来说，凡是支持向前查找的正则表达式实现都同时支持正向前查找和负向前查找。类似地，凡是支持正则表达式实现都同时支持正向后查找和负向后查找。"
+      }
+    ]
+  }
+}
