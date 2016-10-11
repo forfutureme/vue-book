@@ -15,6 +15,11 @@
     </div>
 </template>
 <style lang="sass" scoped>
+    @keyframes typing{
+        from{
+            width: 0;
+        }
+    }
     .bubble{
         width: 100%;
         height: 100%;
@@ -39,6 +44,11 @@
                     height: 100%;
                     color: #fff;
                     span{
+                        width: 10ch;
+                        overflow: hidden;
+                        white-space: nowrap;
+                        text-align: center;
+                        animation: typing 3s steps(10) infinite;
                         &.cn{
                             margin-top: 20px;
                             font-size: 12px;

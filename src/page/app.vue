@@ -18,12 +18,6 @@
             height: 100%;
         }
     }
-        .fade-transition {
-            transition: opacity .3s ease;
-        }
-        .fade-enter, .fade-leave {
-            opacity: 0;
-        }
 </style>
 <script>
     //引入请求接口方法

@@ -5,7 +5,10 @@ let xiao = require('./xiao/xiao');
 let login = require('./login/login');
 let register = require('./register/register');
 let checkList = require('./checkList/checkList');
+//正则表达相关接口
 let regexIntroduce = require('./tool/regex/introduce');
+let regexGrammar = require('./tool/regex/grammar');
+let regexContent = require('./tool/regex/content');
 
 
 function DataMethod(query) {
@@ -44,10 +47,29 @@ DataMethod.prototype.checkList = function () {
     return checkList(this.query);
 };
 
+/**
+ * 查找正则介绍内容
+ * @returns {*}
+ */
 DataMethod.prototype.regexIntroduce = function () {
     return regexIntroduce(this.query);
 };
 
+/**
+ * 查找正则内容目录
+ * @returns {*}
+ */
+DataMethod.prototype.regexGrammar = function () {
+    return regexGrammar(this.query);
+};
+
+/**
+ * 查找正则章节内容
+ * @returns {*}
+ */
+DataMethod.prototype.regexContent = function () {
+    return regexContent(this.query);
+};
 
 
 module.exports = DataMethod;

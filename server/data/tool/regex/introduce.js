@@ -1,5 +1,6 @@
 /**
  * Created by huweijian on 16/10/9.
+ * 读取正则表达式介绍内容
  */
 let fs = require('fs');
 

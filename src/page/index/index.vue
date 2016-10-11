@@ -42,7 +42,7 @@
     export default{
         data(){
             return{
-                msg:'当前系统支持如下小书',
+                msg:'当前包含如下内容',
                 techTool: []
             }
         },

@@ -1,0 +1,26 @@
+@charset "UTF-8";
+
+/**
+* 定义关闭按钮样式
+*/
+@mixin close{
+  display: inline-block;
+  text-indent: -9999em;
+  width: 25px;
+  height: 25px;
+  border: 1px solid #000;
+  border-radius: 50%;
+  cursor: pointer;
+  &::after{
+    position: absolute;
+    left: 0;
+    top: 0;
+    content: '×';
+    width: 25px;
+    height: 25px;
+    text-indent: 5px;
+    font-size: 20px;
+    line-height: 20px;
+    border-radius: 50%;
+  }
+}

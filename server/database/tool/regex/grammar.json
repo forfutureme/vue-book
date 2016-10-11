@@ -1,0 +1,320 @@
+{
+  "menu": [
+    [
+      {
+        "id": "1",
+        "type": "h1",
+        "title": "匹配单个字符",
+        "child": true
+      },
+      {
+        "id": "1.1",
+        "type": "h2",
+        "title": "匹配纯文本",
+        "child": true
+      },
+      {
+        "id": "1.1.1",
+        "type": "h3",
+        "title": "匹配多个结果"
+      },
+      {
+        "id": "1.1.2",
+        "type": "h3",
+        "title": "字母大小写"
+      },
+      {
+        "id": "1.2",
+        "type": "h2",
+        "title": "匹配任何字符",
+        "child": false
+      },
+      {
+        "id": "1.3",
+        "type": "h2",
+        "title": "匹配特殊字符",
+        "child": false
+      }
+    ],
+    [
+      {
+        "id": "2",
+        "type": "h1",
+        "title": "匹配一组字符",
+        "child": true
+      },
+      {
+        "id": "2.1",
+        "type": "h2",
+        "title": "匹配多个字符中的某一个",
+        "child": false
+      },
+      {
+        "id": "2.2",
+        "type": "h2",
+        "title": "利用字符集合区间",
+        "child": false
+      },
+      {
+        "id": "2.3",
+        "type": "h2",
+        "title": "取非匹配",
+        "child": false
+      }
+    ],
+    [
+      {
+        "id": "3",
+        "type": "h1",
+        "title": "使用元字符",
+        "child": true
+      },
+      {
+        "id": "3.1",
+        "type": "h2",
+        "title": "对特殊字符进行转义",
+        "child": false
+      },
+      {
+        "id": "3.2",
+        "type": "h2",
+        "title": "匹配空白字符",
+        "child": false
+      },
+      {
+        "id": "3.3",
+        "type": "h2",
+        "title": "匹配特定的字符类型",
+        "child": true
+      },
+      {
+        "id": "3.3.1",
+        "type": "h3",
+        "title": "匹配数字（与分数字）",
+        "child": false
+      },
+      {
+        "id": "3.3.2",
+        "type": "h3",
+        "title": "匹配字母和字符",
+        "child": false
+      },
+      {
+        "id": "3.3.3",
+        "type": "h3",
+        "title": "匹配空白字符",
+        "child": false
+      },
+      {
+        "id": "3.3.4",
+        "type": "h3",
+        "title": "匹配十六进制或八进制数组",
+        "child": false
+      },
+      {
+        "id": "3.4",
+        "type": "h2",
+        "title": "POSIX字符类",
+        "child": false
+      }
+    ],
+    [
+      {
+        "id": "4",
+        "type": "h1",
+        "title": "重复匹配",
+        "child": true
+      },
+      {
+        "id": "4.1",
+        "type": "h2",
+        "title": "有多少个匹配",
+        "child": true
+      },
+      {
+        "id": "4.1.1",
+        "type": "h3",
+        "title": "匹配一个或多个字符",
+        "child": false
+      },
+      {
+        "id": "4.1.2",
+        "type": "h3",
+        "title": "匹配零个或多个字符",
+        "child": false
+      },
+      {
+        "id": "4.1.3",
+        "type": "h3",
+        "title": "匹配零个或一个字符",
+        "child": false
+      },
+      {
+        "id": "4.2",
+        "type": "h2",
+        "title": "匹配的重复次数",
+        "child": true
+      },
+      {
+        "id": "4.2.1",
+        "type": "h3",
+        "title": "为重复匹配次数设定一个精确的值",
+        "child": false
+      },
+      {
+        "id": "4.2.2",
+        "type": "h3",
+        "title": "为重复匹配次数设定一个区间",
+        "child": false
+      },
+      {
+        "id": "4.2.3",
+        "type": "h3",
+        "title": "匹配“至少重复多少次”",
+        "child": false
+      },
+      {
+        "id": "4.3",
+        "type": "h2",
+        "title": "防止过度匹配",
+        "child": false
+      }
+    ],
+    [
+      {
+        "id": "5",
+        "type": "h1",
+        "title": "位置匹配",
+        "child": true
+      },
+      {
+        "id": "5.1",
+        "type": "h2",
+        "title": "边界",
+        "child": false
+      },
+      {
+        "id": "5.2",
+        "type": "h2",
+        "title": "单词边界",
+        "child": false
+      },
+      {
+        "id": "5.3",
+        "type": "h2",
+        "title": "字符串边界",
+        "child": false
+      }
+    ],
+    [
+      {
+        "id": "6",
+        "type": "h1",
+        "title": "使用子表达式",
+        "child": true
+      },
+      {
+        "id": "6.1",
+        "type": "h2",
+        "title": "何为自表达式",
+        "child": false
+      },
+      {
+        "id": "6.2",
+        "type": "h2",
+        "title": "子表达式",
+        "child": false
+      }
+    ],
+    [
+      {
+        "id": "7",
+        "type": "h1",
+        "title": "回溯引用：前后一致匹配",
+        "child": true
+      },
+      {
+        "id": "7.1",
+        "type": "h2",
+        "title": "回溯引用有什么用",
+        "child": false
+      },
+      {
+        "id": "7.2",
+        "type": "h2",
+        "title": "回溯引用匹配",
+        "child": false
+      },
+      {
+        "id": "7.3",
+        "type": "h2",
+        "title": "回溯引用在替换操作中的应用",
+        "child": false
+      },
+      {
+        "id": "7.4",
+        "type": "h2",
+        "title": "大小写转换",
+        "child": false
+      }
+    ],
+    [
+      {
+        "id": "8",
+        "type": "h1",
+        "title": "前后查找",
+        "child": true
+      },
+      {
+        "id": "8.1",
+        "type": "h2",
+        "title": "为何前后查找",
+        "child": false
+      },
+      {
+        "id": "8.2",
+        "type": "h2",
+        "title": "向前查找",
+        "child": false
+      },
+      {
+        "id": "8.3",
+        "type": "h2",
+        "title": "向后查找",
+        "child": false
+      },
+      {
+        "id": "8.4",
+        "type": "h2",
+        "title": "把向前查找和向后查找结合起来",
+        "child": false
+      },
+      {
+        "id": "8.5",
+        "type": "h2",
+        "title": "对前后查找取非",
+        "child": false
+      }
+    ],
+    [
+      {
+        "id": "9",
+        "type": "h1",
+        "title": "嵌入条件",
+        "child": true
+      },
+      {
+        "id": "9.1",
+        "type": "h2",
+        "title": "为什么要嵌入条件",
+        "child": false
+      },
+      {
+        "id": "9.2",
+        "type": "h2",
+        "title": "正则表达式里的条件",
+        "child": false
+      }
+    ]
+  ]
+}
