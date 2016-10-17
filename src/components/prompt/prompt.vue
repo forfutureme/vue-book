@@ -8,7 +8,7 @@
 
 </style>
 <script>
-    import dialogComponent from './dialog/dialog.vue'
+    import warningComponent from './warning/warning.vue'
     import loadingComponent from './loading/loading.vue'
     export default{
         data(){
@@ -18,12 +18,9 @@
         },
         props: ['prompt'],
         components:{
-            'dialog': dialogComponent,
+            'warning': warningComponent,
             'loading': loadingComponent,
-        },
-        ready(){
-//            this.promptView = this.prompt.type || 'loading';
-//            this.text = this.prompt.text || '玩命加载中...';
         }
+
     }
 </script>

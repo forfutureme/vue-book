@@ -15,6 +15,10 @@ body{
   background:#f0eff5;
 }
 
+#app{
+  height: 100%;
+}
+
 a{
   text-decoration: none;
   color:#333;
@@ -32,9 +36,9 @@ ul,li{
   list-style: none;
 }
 
-.fade-transition {
+.fade-enter-active, .fade-leave-active{
   transition: opacity .3s ease;
 }
-.fade-enter, .fade-leave {
+.fade-enter, .fade-leave-active {
   opacity: 0;
 }

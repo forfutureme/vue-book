@@ -126,7 +126,6 @@
                     console.log(this);
                 }
             }
-        },
-
+        }
     }
 </script>

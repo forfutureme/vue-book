@@ -5,10 +5,10 @@
  */
 var path = require('path'),
     config = require('../config'),
-    projectRoot = process.cwd(),
     webpack = require('webpack'),
     //webpack插件
-    ExtractPlugin = require('extract-text-webpack-plugin');
+    ExtractPlugin = require('extract-text-webpack-plugin'),
+    projectRoot = path.resolve(__dirname, '../src');
 
 
 module.exports = {
@@ -42,16 +42,18 @@ module.exports = {
     ],
     module: {
         preLoaders: [
-            {
-                test: /\.js/,
-                loader: 'eslint',
-                exclude: ['../node_modules', '../bower_components']
-            },
-            {
-                test: /\.vue$/,
-                loader: 'eslint',
-                exclude: ['../node_modules', '../bower_components']
-            }
+            // {
+            //     test: /\.js/,
+            //     loader: 'eslint',
+            //     include: './src',
+            //     exclude: ['../node_modules', '../bower_components']
+            // },
+            // {
+            //     test: /\.vue$/,
+            //     loader: 'eslint',
+            //     include: './src',
+            //     exclude: ['../node_modules', '../bower_components']
+            // }
 
         ],
         loaders: [
@@ -64,7 +66,7 @@ module.exports = {
             {
                 test: /\.js/,
                 loader: 'babel',
-                //include: __dirname + '../src'
+                include: projectRoot,
                 exclude: ['../node_modules', '../bower_components']
             },
             {
@@ -97,6 +99,9 @@ module.exports = {
         }
     },
     resolve: {
+        alias: {
+            'vue$': 'vue/dist/vue.js'
+        },
         extensions: ['', '.webpack.js', '.web.js', '.js', '.vue'],
         root: [
             projectRoot

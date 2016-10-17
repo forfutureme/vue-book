@@ -3,12 +3,12 @@
         <ul>
             <li v-for="item in list"
                 v-bubble-run:index="item"
-                data-id="{{item.id}}"
-                data-type="{{item.type}}">
-                <a v-link="{name: item.en}">
+                :data-id="item.id"
+                :data-type="item.type">
+                <router-link to="regex">
                     <span class="cn">{{item.cn}}</span>
                     <span class="en">{{item.en}}</span>
-                </a>
+                </router-link>
 
             </li>
         </ul>
@@ -79,11 +79,10 @@
         },
         directives:{
             'bubble-run': {
-                bind(){
+                bind(el, binding, vnode){
                     let
                             timer,
-                            el = this.el,
-                            vm = this.vm,
+                            vm = vnode.context,
                             style = el.style,
                             stepL = Math.random() > 0.5 ? -1 : 1,
                             stepT = Math.random() > 0.5 ? -1 : 1,
@@ -139,7 +138,6 @@
          * 卸载该组件时，清空计时器
          */
         destroyed(){
-            console.log(this.times);
             for (let i in this.times){
                 clearInterval(this.times[i]);
             }

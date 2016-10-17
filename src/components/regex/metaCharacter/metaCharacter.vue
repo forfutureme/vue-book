@@ -7,9 +7,12 @@
                              'h2': item.type==='h2',
                              'weight': item.type!=='text',
                              'add': item.type==='add'}">
-                    <label v-if="item.type==='text'"
-                           v-back-slash="item.character"></label>
-                    <span  v-back-slash="item.mean"></span>
+                    <label v-if="item.type==='text'">
+                        {{item.character | backSlash}}
+                    </label>
+                    <span>
+                        {{item.mean | backSlash}}
+                    </span>
                 </li>
             </ul>
         </div>
@@ -20,8 +23,12 @@
                              'h2': item.type==='h2',
                              'weight': item.type!=='text',
                              'add': item.type==='add'}">
-                    <label v-if="item.type==='text'"  v-back-slash="item.character"></label>
-                    <span v-back-slash="item.mean"></span>
+                    <label v-if="item.type==='text'">
+                        {{item.character | backSlash}}
+                    </label>
+                    <span>
+                         {{item.mean | backSlash}}
+                    </span>
                 </li>
             </ul>
         </div>
@@ -32,8 +39,12 @@
                              'h2': item.type==='h2',
                              'weight': item.type!=='text',
                              'add': item.type==='add'}">
-                    <label v-if="item.type==='text'"  v-back-slash="item.character"></label>
-                    <span v-back-slash="item.mean"></span>
+                    <label v-if="item.type==='text'">
+                        {{item.character | backSlash}}
+                    </label>
+                    <span>
+                         {{item.mean | backSlash}}
+                    </span>
                 </li>
             </ul>
         </div>
@@ -44,8 +55,12 @@
                              'h2': item.type==='h2',
                              'weight': item.type!=='text',
                              'add': item.type==='add'}">
-                    <label v-if="item.type==='text'"  v-back-slash="item.character"></label>
-                    <span v-back-slash="item.mean"></span>
+                    <label v-if="item.type==='text'">
+                        {{item.character | backSlash}}
+                    </label>
+                    <span>
+                         {{item.mean | backSlash}}
+                    </span>
                 </li>
             </ul>
         </div>
@@ -56,8 +71,12 @@
                              'h2': item.type==='h2',
                              'weight': item.type!=='text',
                              'add': item.type==='add'}">
-                    <label v-if="item.type==='text'"  v-back-slash="item.character"></label>
-                    <span v-back-slash="item.mean"></span>
+                    <label v-if="item.type==='text'">
+                        {{item.character | backSlash}}
+                    </label>
+                    <span>
+                         {{item.mean | backSlash}}
+                    </span>
                 </li>
             </ul>
         </div>
@@ -68,8 +87,12 @@
                              'h2': item.type==='h2',
                              'weight': item.type!=='text',
                              'add': item.type==='add'}">
-                    <label v-if="item.type==='text'"  v-back-slash="item.character"></label>
-                    <span v-back-slash="item.mean"></span>
+                    <label v-if="item.type==='text'">
+                        {{item.character | backSlash}}
+                    </label>
+                    <span>
+                         {{item.mean | backSlash}}
+                    </span>
                 </li>
             </ul>
         </div>
@@ -80,8 +103,12 @@
                              'h2': item.type==='h2',
                              'weight': item.type!=='text',
                              'add': item.type==='add'}">
-                    <label v-if="item.type==='text'"  v-back-slash="item.character"></label>
-                    <span v-back-slash="item.mean"></span>
+                    <label v-if="item.type==='text'">
+                        {{item.character | backSlash}}
+                    </label>
+                    <span>
+                         {{item.mean | backSlash}}
+                    </span>
                 </li>
             </ul>
         </div>
@@ -143,18 +170,16 @@
     export default{
         data(){
             return{
-                msg:'hello vue'
+                characters: []
             }
         },
         props: ['character'],
         components:{
 
         },
-        directives: {
-            'back-slash': {
-                update(value){
-                    this.el.innerHTML = value.replace(/((-)(.+?)(-))/g, '\\$3');
-                }
+        filters: {
+            backSlash(value){
+                return value.replace(/((-)(.+?)(-))/g, '\\$3');
             }
         }
     }

@@ -91,7 +91,7 @@
             test(){
                 let
                         regexRule = this.rule,
-                        regexConfigs = this.configs.toString(),
+                        regexConfigs = this.configs.join(''),
                         regexp = new RegExp(regexRule, regexConfigs);
                 this.result = this.text.replace(regexp, function (str) {
                     return '<i style="background: #f00; color: #fff;">'+ str + '</i>';

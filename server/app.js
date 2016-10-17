@@ -5,12 +5,16 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var history = require('connect-history-api-fallback');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
 var routeMethod = require('./routes/routeMethod');
 
 var app = express();
+
+//配置历史
+app.use(history());
 
 //支持服务端跨域
 app.use(cors());

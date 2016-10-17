@@ -15,24 +15,27 @@
         </div>
         <div class="regex-content">
             <ul>
-                <li class="{{pos}}" data-type="标志位"></li>
+                <li :class="pos" data-type="标志位"></li>
                 <li @click="changeIntro('grammar')">知识概念</li>
                 <li @click="changeIntro('case')">具体实例</li>
             </ul>
             <div class="regex-introduce">
-                <component :is="view"
-                           transition="fade"
-                           transition-mode="out-in"></component>
+                <transition name="fade">
+                    <component :is="view"></component>
+                </transition>
+
             </div>
         </div>
         <div class="regex-point" :class="{'show': pointShow}">
             <h4>元字符一览</h4>
             <span class="close" @click="toShowPoint">关闭</span>
-            <meta-character-component :character="regex.metaCharacter"></meta-character-component>
+            <meta-character-component
+                    v-if="regex.metaCharacter"
+                    :character="regex.metaCharacter"></meta-character-component>
         </div>
         <div class="regex-try" :class="{'show': showTry}">
             <span @click="toTry">关闭</span>
-            <regex-try-component></regex-try-component>
+            <regex-try-component ></regex-try-component>
         </div>
     </div>
 </template>
@@ -241,14 +244,13 @@
                 this.showTry = !this.showTry;
             }
         },
-        init(){
+        created(){
             let _this = this;
             api
                     .call(this, {
                         _mt: 'vue.regexIntroduce'
                     })
                     .then(function (data) {
-                        console.log(data);
                         _this.regex = data.result[0];
                     })
                     .catch(function (err) {

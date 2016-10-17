@@ -1,10 +1,10 @@
 <template>
-    <div class="dialog">
-        <div class="dialog-text">
+    <div class="warning">
+        <div class="warning-text">
             <text-turn-component :text.sync="text"></text-turn-component>
         </div>
-        <div class="dialog-style">
-            <span class="warn"></span>
+        <div class="warning-style">
+            <span class="warning"></span>
         </div>
     </div>
 </template>
@@ -13,14 +13,14 @@
     @import "../../../assets/scss/utils/functions/_get-index";
     @import "../../../assets/scss/utils/mixins/center";
 
-    .dialog{
+    .warning{
         position: fixed;
         z-index: get-zIndex($z-index, dialog);
         @include center();
-        .dialog-style{
+        .warning-style{
             display: flex;
             margin: 35px auto;
-            .warn{
+            .warning{
                 display: inline-block;
                 width: 50px;
                 height: 50px;
@@ -45,7 +45,7 @@
     export default{
         data(){
             return{
-                msg:'hello vue'
+
             }
         },
         props: ['text'],

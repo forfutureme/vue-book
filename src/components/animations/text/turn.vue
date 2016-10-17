@@ -1,7 +1,7 @@
 <template>
     <div class="turn">
         <ul>
-            <li v-for="letter in text" track-by="$index">
+            <li v-for="letter in letters" track-by="$index">
                 {{letter}}
             </li>
         </ul>
@@ -55,7 +55,7 @@
     export default{
         data(){
             return{
-
+                letters: []
             }
         },
         props: ['text'],
@@ -65,7 +65,7 @@
         /**
          * 组件dom被首次插入到页面中调用
          */
-        ready(){
+        mounted(){
             let
                     $li = $(this.$el).find('li'),
                     n = $li.length,
@@ -85,6 +85,12 @@
          */
         destroyed(){
             clearInterval(this.rollMove);
+        },
+        /**
+         * 渲染页面之前格式化数据
+         */
+        created(){
+            this.letters = this.text.split('');
         }
     }
 </script>

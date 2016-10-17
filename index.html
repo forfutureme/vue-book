@@ -5,6 +5,12 @@
     <title>vue 小书</title>
 </head>
 <body>
+    <div id="app">
+        <router-link to="index">点击进入</router-link>
+        <transition name="fade">
+            <router-view></router-view>
+        </transition>
 
+    </div>
 </body>
 </html>

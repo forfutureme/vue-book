@@ -3,29 +3,36 @@
         <h3>这里介绍正则表达式的一些基础知识</h3>
         <div class="grammar-main">
             <div class="grammar-menu">
-                <ul v-for="menu in menus" data-number="{{$index+1}})">
+                <ul v-if="menus.length"
+                    v-for="(menu, index) in menus"
+                    track-by="$index"
+                    :data-number="index+1+')'">
                     <li v-for="item in menu"
                         :class="{'h1': item.type==='h1',
                                  'h2': item.type==='h2',
                                  'h3': item.type==='h3',
                                  'hide': item.type!=='h1'}"
-                        data-id="{{item.id}}"
+                        :data-id="item.id"
                         @click="titleClick(item)">
                         {{item.title}}
                     </li>
                 </ul>
             </div>
             <div class="grammar-content">
-                <div class="content-box">
-                    <div class="summary" v-back-slash="info.summary"></div>
-                    <div class="example">
+                <div class="content-box"
+                     :class="{'show': boxShow}">
+                    <div class="summary"
+                         v-if="info.summary">
+                        {{info.summary | backSlash}}
+                    </div>
+                    <div v-if="info.example" class="example">
                         <p class="text" v-if="info.example.text">
                             <label>字符串：</label>
                             <span>{{info.example.text}}</span>
                         </p>
                         <p class="reg" v-if="info.example.reg">
                             <label>正则：</label>
-                            <span v-back-slash="info.example.reg"></span>
+                            <span>{{info.example.reg | backSlash}}</span>
                         </p>
                         <p class="configs" v-if="info.example.configs">
                             <label>模式：</label>
@@ -33,11 +40,11 @@
                         </p>
                         <p class="result" v-if="info.example.result">
                             <label>结果：</label>
-                            <span v-replace-style="info.example.result"></span>
+                            <span>{{info.example.result | replaceStyle }}</span>
                         </p>
                         <p class="analyse" v-if="info.example.analyse">
                             <label>分析：</label>
-                            <span v-back-slash="info.example.analyse"></span>
+                            <span>{{info.example.analyse | backSlash}}</span>
                         </p>
                     </div>
                 </div>
@@ -192,22 +199,22 @@
             return{
                 menus: [],
                 grammarContext: [],
-                info: {}
+                info: {},
+                boxShow: false
             }
         },
         components:{
 
         },
         directives: {
-            'back-slash': {
-                update(value){
-                    this.el.innerHTML =  value && value.replace(/_{3}/g, '\\');
-                }
+
+        },
+        filters: {
+            backSlash(value){
+                return value.replace(/_{3}/g, '\\');
             },
-            'replace-style':{
-                update(value){
-                    this.el.innerHTML = value.replace(/_(.*?)_/g, '<i style="background: #ef0;">$1</i>')
-                }
+            replaceStyle(value){
+                return value.replace(/_(.*?)_/g, '<i style="background: #ef0;">$1</i>');
             }
         },
         methods: {
@@ -245,21 +252,22 @@
                 * @param id
                 */
                function showInfo(id) {
+                   let _this = this;
                    this.info = this.grammarContext[id];
                    let $box = $el.find('.content-box');
-                   if ($box.hasClass('show')){
-                       $box.removeClass('show');
-                       setTimeout(function () {
-                           $box.addClass('show');
-                       }, 500)
+                   if (this.boxShow){
+                       this.boxShow = false;
+                       $box[0].addEventListener('transitionend', function () {
+                           _this.boxShow = true;
+                       }, false)
                    }else{
-                       $box.addClass('show');
+                       this.boxShow = true;
                    }
 
                }
            }
         },
-        init(){
+        created(){
             let _this = this;
             api
                     .call(this, {
